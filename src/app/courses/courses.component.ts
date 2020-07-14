@@ -12,10 +12,14 @@ export class CoursesComponent implements OnInit {
 
   selectedCourse = null;
 
+  disabled = false;
+  thumbLabel = false;
+  value = 0;
+
   courses = [
     {
       id: 1,
-      title: 'Angular 9 Fundamentals',
+      title: 'Angular 9',
       description: 'Learn the fundamentals of Angular 9',
       percentComplete: 26,
       favorite: true
@@ -25,7 +29,7 @@ export class CoursesComponent implements OnInit {
       title: 'JavaScript The Really REALLY HARD PARTS',
       description: 'Worship Will Sentance',
       percentComplete: 50,
-      favorite: true
+      favorite: false
     }
   ];
 
