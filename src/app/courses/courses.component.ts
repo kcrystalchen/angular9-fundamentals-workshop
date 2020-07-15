@@ -1,3 +1,4 @@
+import { CoursesService } from './../shared/services/courses.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,37 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  // CHALLENGE
-  // STEP 01: Update the form to show percentComplete
-  // STEP 02: Updaet the form to show favorite
 
   selectedCourse = null;
-
-  disabled = false;
-  thumbLabel = false;
-  value = 0;
-
-  courses = [
-    {
-      id: 1,
-      title: 'Angular 9',
-      description: 'Learn the fundamentals of Angular 9',
-      percentComplete: 26,
-      favorite: true
-    },
-    {
-      id: 2,
-      title: 'JavaScript The Really REALLY HARD PARTS',
-      description: 'Worship Will Sentance',
-      percentComplete: 50,
-      favorite: false
-    }
-  ];
-
-  constructor() { }
+  courses = null;
+  constructor(private coursesService: CoursesService) { }
 
   ngOnInit(): void {
     this.resetSelectedCourse();
+    this.courses = this.coursesService.getAll();
   }
 
   resetSelectedCourse() {
@@ -47,20 +25,26 @@ export class CoursesComponent implements OnInit {
       percentComplete: 0,
       favorite: false
     };
-
     this.selectedCourse = emptyCourse;
   }
 
-  selectCourse(course) {
+  selectCourse(course: any) {
     this.selectedCourse = course;
+    console.log(`select course info ${course.title}`);
   }
 
-  saveCourse() {
-    console.log('SAVE SOURCE!');
-  }
-
-  deleteCourse(courseId) {
+  deleteCourse(courseId: number) {
     console.log('COURSE DELETED!', courseId);
+    this.coursesService.delete(courseId);
+  }
+
+  saveCourse(inputCourse: any) {
+    console.log('SAVE SOURCE!');
+    if (inputCourse.title !== undefined){
+      this.coursesService.update(inputCourse);
+    } else {
+      this.coursesService.create(inputCourse);
+    }
   }
 
   cancel() {

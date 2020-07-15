@@ -1,5 +1,8 @@
 <div class="courses-containers">
-  <div class="courses-list">
+
+
+<!-- display the course list and select and delete course card -->
+ <div class="courses-list">
     <mat-card>
       <mat-card-header>
         <mat-card-title>
@@ -7,34 +10,40 @@
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <mat-list>
 
+        <mat-list>
           <mat-list-item *ngFor="let course of courses"
             (click)="selectCourse(course)">
+
             <h3 matLine>{{course.title}}</h3>
             <p matLine>{{course.description}}</p>
+
             <button mat-icon-button color="warn"
               (click)="deleteCourse(course.id);$event.stopImmediatePropagation()">
               <mat-icon>delete</mat-icon>
             </button>
           </mat-list-item>
-
         </mat-list>
 
       </mat-card-content>
     </mat-card>
   </div>
 
+
+<!-- display the select course detail  -->
   <div class="course-details">
     <mat-card>
       <mat-card-header>
         <mat-card-title>
-          <span *ngIf="selectedCourse.id; else noSelection"> {{selectedCourse.title}} </span>
-          <ng-template #noSelection> select course</ng-template>
+
+          <span *ngIf="selectedCourse.id; else noSelection">
+            {{selectedCourse.title}} </span>
+          <ng-template #noSelection> Select a Course</ng-template>
+
         </mat-card-title>
       </mat-card-header>
 
-      <form #form="ngForm" (submit)="saveCourse()">
+      <form #form="ngForm" (submit)="saveCourse(selectedCourse)">
 
         <mat-card-content>
 
@@ -52,8 +61,7 @@
 
           <h4> {{selectedCourse.percentComplete}}</h4>
           <section>
-            <mat-slider
-            class="full-width"
+            <mat-slider class="full-width"
             [(ngModel)]="selectedCourse.percentComplete"
             min="0" max="100"
             name="percentComplete"
@@ -70,9 +78,13 @@
 
         </mat-card-content>
 
+
         <mat-card-actions>
+
           <button [disabled]="form.invalid" type="submit" mat-button color="primary">Submit</button>
+
           <button type="button" mat-button (click)="cancel()">Cancel</button>
+
         </mat-card-actions>
       </form>
       <pre>{{form.value | json}}</pre>
