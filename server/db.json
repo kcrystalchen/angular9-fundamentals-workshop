@@ -6,6 +6,34 @@
       "description": "Learn the fundamentals of Angular 9",
       "percentComplete": 26,
       "favorite": true
+    },
+    {
+      "id": 2,
+      "title": "Find the next perfect square",
+      "description": "test",
+      "percentComplete": 0,
+      "favorite": false
+    },
+    {
+      "id": 3,
+      "title": "😉😆❤",
+      "description": "test",
+      "percentComplete": 29,
+      "favorite": true
+    },
+    {
+      "id": 4,
+      "title": "😉😆❤hello",
+      "description": "hello again",
+      "percentComplete": 75,
+      "favorite": true
+    },
+    {
+      "id": 5,
+      "title": "Fix Something DB",
+      "description": "hello again",
+      "percentComplete": 90,
+      "favorite": true
     }
   ]
 }

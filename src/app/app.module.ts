@@ -1,3 +1,4 @@
+import { LessonsService } from './shared/services/lessons.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,7 +19,7 @@ import { CoursesService } from './shared/services/courses.service';
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule //make Http call
   ],
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { CoursesService } from './shared/services/courses.service';
     CoursesComponent
   ],
   providers: [
-    CoursesService
+    CoursesService,
+    LessonsService
   ],
   bootstrap: [AppComponent]
 })

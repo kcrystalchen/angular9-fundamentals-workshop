@@ -1,3 +1,4 @@
+import { LessonsService } from './../shared/services/lessons.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  title = 'Hello Workshop';
+
+  constructor(private lessonsService: LessonsService) { }
+
   currentLesson = null;
 
   // CHALLENGE
@@ -16,24 +19,18 @@ export class HomeComponent implements OnInit {
   // STEP 03: Inject lessons service into component
   // STEP 04: Move lessons to service and consume in component
 
-  courseLessons = [
-    { title: 'Hello Angular' },
-    { title: 'Component Fundamentals' },
-    { title: 'Template Driven Forms' },
-    { title: 'Angular Services' },
-    { title: 'Server Communication' },
-    { title: 'Component Driven Architecture' },
-    { title: 'Angular Routing' },
-    { title: 'Unit Testing Fundamentals' },
-  ];
-
-  constructor() { }
+  courseLessons = null;
+  title = this.lessonsService.getTitle();
 
   ngOnInit(): void {
+    this.courseLessons = this.lessonsService.getAll();
   }
 
-  selectLesson(lesson) {
+
+  selectLesson(lesson: {}) {
     console.log('SELECT LESSON FIRED!', lesson);
-    this.currentLesson = lesson;
+    for (const theLesson of this.lessonsService.getAll()){
+      this.currentLesson = theLesson.title;
+    }
   }
 }

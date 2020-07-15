@@ -1,38 +1,31 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+const BASE_URL = 'http://localhost:3000';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CoursesService {
-  private courses = [
-    {
-      id: 1,
-      title: 'Angular 9 Fundamentals!!',
-      description: 'Learn the fundamentals of Angular 9',
-      percentComplete: 26,
-      favorite: true
-    },
-    {
-      id: 2,
-      title: 'JavaScript The Really REALLY HARD PARTS!!',
-      description: 'Worship Will Sentance',
-      percentComplete: 50,
-      favorite: true
-    }
-  ];
 
-  constructor() { }
+  // endpoint for courses data model
+  private coursesDataModel = '/courses';
 
+  constructor(private http: HttpClient) { }
+
+  // it is making a http call and return an observable(a promise, except getting one value, it gets many values)
   all() {
-    return this.courses;
+    return this.http.get(this.getURL());
   }
 
   find(courseId) {
-
   }
 
+  // the second parameter is the payload
   create(course) {
     console.log('CREATE COURSE', course);
+    return this.http.post(this.getURL(), course);
   }
 
   update(course) {
@@ -41,5 +34,9 @@ export class CoursesService {
 
   delete(courseId) {
     console.log('DLETE COURSE', courseId);
+  }
+
+  private getURL(){
+    return `${BASE_URL}${this.coursesDataModel}`;
   }
 }
