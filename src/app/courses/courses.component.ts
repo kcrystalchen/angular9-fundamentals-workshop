@@ -9,7 +9,7 @@ import { CoursesService } from '../shared/services/courses.service';
 export class CoursesComponent implements OnInit {
   // CHALLENGE
   // STEP 01: Update the form to show percentComplete
-  // STEP 02: Updaet the form to show favorite
+  // STEP 02: Update the form to show favorite
 
   selectedCourse = null;
   localCourses = null;
