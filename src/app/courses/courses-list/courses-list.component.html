@@ -1,0 +1,31 @@
+<p>courses-list works!</p>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Course List
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <mat-list>
+          <!-- step 3: when someone clicked the button, it hit the emit the event, it captures the event from click-->
+
+          <mat-list-item
+          *ngFor="let course of courses"
+           (click)="selected.emit(course)"
+          >
+
+            <h3 matLine>{{course.title}}</h3>
+            <p matLine>{{course.description}}</p>
+
+            <button mat-icon-button color="warn"
+            (click)="deleted.emit(course.id);$event.stopImmediatePropagation()"  >
+
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+
+        </mat-list>
+      </mat-card-content>
+    </mat-card>

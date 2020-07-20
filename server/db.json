@@ -9,24 +9,24 @@
     },
     {
       "id": 2,
-      "title": "Functional JavaScript",
-      "description": "Brian is a demi-god",
-      "percentComplete": 0,
+      "title": "I just want to change this one",
+      "description": "hello again 2",
+      "percentComplete": 92,
       "favorite": false
     },
     {
       "id": 3,
-      "title": "GraphQL for the Masses",
-      "description": "Scott Moss is the Boss",
-      "percentComplete": 0,
-      "favorite": false
+      "title": "JavaScript The Really REALLY HARD PARTS",
+      "description": "Learn the fundamentals of Angular 9",
+      "percentComplete": 88,
+      "favorite": true
     },
     {
       "id": 4,
-      "title": "Creating a Learning Empire",
-      "description": "Marc G Gets It Done",
-      "percentComplete": 0,
-      "favorite": false
+      "title": "😉😆❤ mmmm",
+      "description": "hello again",
+      "percentComplete": 93,
+      "favorite": true
     }
   ]
 }
