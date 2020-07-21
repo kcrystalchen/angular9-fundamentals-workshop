@@ -7,10 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Angular 9 Fundamentals';
+  title = 'Angular 9';
   links = [
     { path: '/home', icon: 'home', title: 'Home' },
     { path: '/courses', icon: 'view_list', title: 'Courses' },
+    { path: '/user', icon: 'account_circle', title: 'user'}
   ];
 
   constructor(private router: Router) {}
