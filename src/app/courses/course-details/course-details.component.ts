@@ -17,5 +17,5 @@ export class CourseDetailsComponent {
       this.selectedCourse = Object.assign({}, value);
       this.originalTitle = value.title;
     }
-  };
+  }
 }

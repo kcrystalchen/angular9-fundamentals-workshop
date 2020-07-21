@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +13,6 @@ export class LessonsService {
     { title: 'Angular Routing' },
     { title: 'Unit Testing Fundamentals' },
   ];
-
   constructor() { }
 
   all() {
