@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -12,5 +13,9 @@ export class AppComponent {
     { path: '/courses', icon: 'view_list', title: 'Courses' },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  logout(){
+    this.router.navigateByUrl('/login');
+  }
 }
